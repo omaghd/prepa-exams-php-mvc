@@ -8,7 +8,7 @@
                 Copyright &copy; <?= date('Y') == 2021 ? date('Y') : '2021 - ' . date('Y') ?>
             </div>
             <div>
-                <a href="https://omaghd.com">OmaghD.com</a> &mdash; Omar EL ATMANI
+                Made with ♥ By Omar EL ATMANI &mdash; <a href="https://omaghd.com">OmaghD.com</a>
             </div>
             <div>
                 <a href="<?= URLROOT . '/disclaimer' ?>">Disclaimer</a>
@@ -102,15 +102,24 @@
                             let questions = response.questions;
                             let parties = response.parties;
                             let annee = $('.dateBtn.active').attr('href').replace('#', '');
+                            afficherParties(parties, questions, annee);
+                            var url = location.href;
+                            location.href = "#liste_courante";
+                            history.replaceState(null, null, url);
+                        }
+                    });
+                });
+            }
 
-                            let questionsHTML = `
+            function afficherParties(parties, questions, annee) {
+                let questionsHTML = `
                             <div class="tab-content" id="questions_courantes">
                                 <div class="tab-pane fade active show" id="${annee}">
                                     <div class="accordion mt-3" id="parties">
                                     `;
-                            $.each(parties, function(index, partie) {
-                                let questionsCourantesHTML = afficherQuestionsParPartie(questions, partie.partie);
-                                questionsHTML += `<!-- DEBUT PARTIE -->
+                $.each(parties, function(index, partie) {
+                    let questionsCourantesHTML = afficherQuestionsParPartie(questions, partie.partie);
+                    questionsHTML += `<!-- DEBUT PARTIE -->
                                         <div class="card">
                                             <div class="card-header py-1" id="partie_${partie.partie}">
                                                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_${partie.partie}" aria-expanded="true" aria-controls="collapse_${partie.partie}">
@@ -135,17 +144,13 @@
                                         </div>
                                         <!-- FIN PARTIE -->
                                         `;
-                            });
-
-                            questionsHTML += `</div>
+                });
+                questionsHTML += `</div>
                                 </div>
                             </div>
                             `;
-                            $('#questions_courantes').remove();
-                            $('#liste_courante').append(questionsHTML);
-                        }
-                    });
-                });
+                $('#questions_courantes').remove();
+                $('#liste_courante').append(questionsHTML);
             }
 
             function afficherQuestionsParPartie(questions, partie) {
@@ -159,7 +164,7 @@
                             </li>`
                         if (question.points != null) {
                             questionsCourantesHTML += ` <div class="d-flex justify-content-end">
-                                                            <small class="font-weight-bold badge badge-pill badge-dark">${parseFloat(question.points)} pts</small>
+                                                            <small class="font-weight-bold badge badge-pill badge-dark py-2">${parseFloat(question.points)} pts</small>
                                                         </div>`
                         }
                         questionsCourantesHTML += `</div>
