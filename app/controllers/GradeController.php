@@ -4,7 +4,8 @@ class GradeController extends Controller
 {
     public function __construct()
     {
-        $this->gradeModel = $this->model('Home/grade');
+        $this->gradeModel   = $this->model('Home/grade');
+        $this->matiereModel = $this->model('Home/matiere');
     }
 
     public function include($title)
@@ -30,7 +31,6 @@ class GradeController extends Controller
 
     public function first($param = NULL)
     {
-
         if ($param) :
             $this->errorPage();
         else :
@@ -43,7 +43,6 @@ class GradeController extends Controller
 
     public function second($param = NULL)
     {
-
         if ($param) :
             $this->errorPage();
         else :
@@ -56,12 +55,14 @@ class GradeController extends Controller
 
     public function third($param = NULL)
     {
-
         if ($param) :
             $this->errorPage();
         else :
+            $matieres = $this->matiereModel->afficherMatieres();
             $this->include('3ème Année');
-            $this->view('grades/third');
+            $this->view('grades/third', [
+                'matieres' => $matieres
+            ]);
         endif;
 
         $this->view('layout/footer');
