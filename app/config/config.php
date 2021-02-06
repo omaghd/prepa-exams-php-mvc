@@ -20,7 +20,8 @@ define('DB_PASS', '');
 define('DB_NAME', '5fr_prepa');
 
 // URL ROOT
-define('URLROOT', 'http://omagh/preparation-php');
+define('DIR', 'preparation-php');
+define('URLROOT', 'http://omagh/' . DIR);
 
 // SITE NAME
 define('SITENAME', 'PREPA EXAMS');
