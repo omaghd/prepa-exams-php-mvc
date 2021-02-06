@@ -3,13 +3,16 @@ function checkActiveItem($itemName)
 {
     $url = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/' . DIR . '/');
     switch ($url) {
-        case 'grade/first':
+        case 'grade/first/s1':
+        case 'grade/first/s2':
             if ($itemName == 'first') echo 'active';
             break;
-        case 'grade/second':
+        case 'grade/second/s1':
+        case 'grade/second/s2':
             if ($itemName == 'second') echo 'active';
             break;
-        case 'grade/third':
+        case 'grade/third/s1':
+        case 'grade/third/s2':
             if ($itemName == 'third') echo 'active';
             break;
     }
@@ -24,20 +27,38 @@ function checkActiveItem($itemName)
         </button>
         <div id="my-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto text-uppercase">
-                <li class="nav-item <?= checkActiveItem('first') ?>">
-                    <a class="nav-link" href="<?= URLROOT ?>/grade/first">1ere annee</a>
+                <li class="nav-item dropdown <?= checkActiveItem('first') ?>">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        1ere annee
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= URLROOT ?>/grade/first/s1">S1</a>
+                        <a class="dropdown-item" href="<?= URLROOT ?>/grade/first/s2">S2</a>
+                    </div>
                 </li>
-                <li class="nav-item <?= checkActiveItem('second') ?>">
-                    <a class="nav-link" href="<?= URLROOT ?>/grade/second">2eme annee</a>
+                <li class="nav-item dropdown <?= checkActiveItem('second') ?>">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        2eme annee
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= URLROOT ?>/grade/second/s1">S1</a>
+                        <a class="dropdown-item" href="<?= URLROOT ?>/grade/second/s2">S2</a>
+                    </div>
                 </li>
-                <li class="nav-item <?= checkActiveItem('third') ?>">
-                    <a class="nav-link" href="<?= URLROOT ?>/grade/third">3eme annee</a>
+                <li class="nav-item dropdown <?= checkActiveItem('third') ?>">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        3eme annee
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= URLROOT ?>/grade/third/s1">S1</a>
+                        <a class="dropdown-item" href="<?= URLROOT ?>/grade/third/s2">S2</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         LIENS UTILES
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu">
                         <a class="dropdown-item" target="_blank" href="https://drive.google.com/drive/folders/0B-5IJNM_GT1GVGI4eVhGTXllM00">Dossier Examens</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" target="_blank" href="https://drive.google.com/drive/folders/1gyTG59qJyQuHTDqn78kHoMmexgoL52jJ">Cours PHP</a>

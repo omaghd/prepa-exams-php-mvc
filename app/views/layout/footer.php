@@ -19,6 +19,23 @@
     <script src="<?= URLROOT . '/assets/jquery/js/jquery.min.js' ?>"></script>
     <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
     <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>"></script>
+    <script>
+        $(function() {
+            $('.controleBtn').click(function() {
+                setActive('c', $(this));
+            });
+
+            $('.examBtn').click(function() {
+                setActive('e', $(this));
+            });
+
+            function setActive(type, element) {
+                $('section').removeClass('active');
+                $(element).parent().parent().parent().parent().addClass('active');
+                let examID = $(element).attr('id').replace(`${type}_matiere_`, '');
+            }
+        });
+    </script>
     </body>
 
     </html>
