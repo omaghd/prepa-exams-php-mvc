@@ -20,10 +20,9 @@ class HomeController extends Controller
             $this->view('home/404');
         else :
             $this->include('Accueil');
-
             $this->view('home/index');
-
-            $this->view('layout/footer');
         endif;
+
+        $this->view('layout/footer');
     }
 }

@@ -33,6 +33,27 @@ function checkActiveItem($itemName)
                 <li class="nav-item <?= checkActiveItem('third') ?>">
                     <a class="nav-link" href="<?= URLROOT ?>/grade/third">3eme annee</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        LIENS UTILES
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" target="_blank" href="https://drive.google.com/drive/folders/0B-5IJNM_GT1GVGI4eVhGTXllM00">Dossier Examens</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" target="_blank" href="https://drive.google.com/drive/folders/1gyTG59qJyQuHTDqn78kHoMmexgoL52jJ">Cours PHP</a>
+                        <a class="dropdown-item" target="_blank" href="https://drive.google.com/drive/folders/1H9Vv5hOwrJoGxU6rovYVZRXrQID8RFRN">Cours JAVA</a>
+                        <a class="dropdown-item" target="_blank" href="https://drive.google.com/drive/folders/1N-bRFxrwO5mph1d_e4BwSO2IVWD4JRWd">Cours UML</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" target="_blank" href="https://classroom.google.com/c/MTY1MjcyOTE2MzI3">Classroom UML</a>
+                        <a class="dropdown-item" target="_blank" href="https://classroom.google.com/c/MTY2OTgwNjE3MDkw">Classroom TEC</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" target="_blank" href="http://l3.vinciclopedie.com/">Calendrier</a>
+                        <a class="dropdown-item" target="_blank" href="https://absence.vinciclopedie.com/">Absence</a>
+                        <a class="dropdown-item" target="_blank" href="https://vmarks.vinciclopedie.com/student/index">Notes</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="<?= URLROOT ?>/feedback">Leave a Feedback</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
