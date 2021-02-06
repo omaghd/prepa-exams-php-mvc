@@ -7,8 +7,23 @@ class HomeController extends Controller
         $this->homeModel = $this->model('Home/home');
     }
 
-    public function index()
+    public function include($title)
     {
-        $this->view('home/index');
+        $this->view('layout/head', ['title' => $title]);
+        $this->view('layout/nav', ['title' => SITENAME]);
+    }
+
+    public function index($param = NULL)
+    {
+        if ($param) :
+            $this->include('Page Introuvable');
+            $this->view('home/404');
+        else :
+            $this->include('Accueil');
+
+            $this->view('home/index');
+
+            $this->view('layout/footer');
+        endif;
     }
 }

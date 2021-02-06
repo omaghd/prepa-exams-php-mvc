@@ -2,8 +2,7 @@
   Options -Multiviews
   RewriteEngine On
   RewriteBase /preparation-php/public
-  RewriteRule ^(assets/css/(.+)) - [L]
-  RewriteRule ^(assets/js/(.+)) - [L]
+  RewriteRule ^(assets/(.+)) - [L]
   RewriteRule ^(includes/(.+)) - [L]
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
