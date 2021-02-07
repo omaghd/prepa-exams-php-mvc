@@ -60,6 +60,7 @@
                     <?php
                     foreach ($matieres as $matiere) :
                     ?>
+
                         <section class="list-group-item list-group-item-action">
                             <div class="d-flex d-block justify-content-between align-items-center">
                                 <div><?= $matiere->nom ?></div>
@@ -74,6 +75,7 @@
                     <?php
                     endforeach;
                     ?>
+
                 </div>
             </div>
         </div>

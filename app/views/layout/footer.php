@@ -23,7 +23,7 @@
     <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>" defer></script>
     <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>" defer></script>
     <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>" defer></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://buttons.github.io/buttons.js" async defer></script>
     <script>
         $(function() {
             window.dataLayer = window.dataLayer || [];

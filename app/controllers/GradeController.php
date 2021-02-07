@@ -4,7 +4,6 @@ class GradeController extends Controller
 {
     public function __construct()
     {
-        $this->gradeModel   = $this->model('Home/Grade');
         $this->matiereModel = $this->model('Home/Matiere');
     }
 
