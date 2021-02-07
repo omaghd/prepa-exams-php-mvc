@@ -23,6 +23,7 @@
     <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>" defer></script>
     <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>" defer></script>
     <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>" defer></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-QG4VCTT8HB" async></script>
     <script src="https://buttons.github.io/buttons.js" async defer></script>
     <script>
         $(function() {
@@ -36,7 +37,7 @@
             gtag('config', 'G-QG4VCTT8HB');
 
             $('.controleBtn').click(function() {
-                setActive('c', $(this));
+                setActive($(this));
                 let matiereID = $(this).attr('id').replace('c_matiere_', '');
                 let title = 'Controles';
                 $.ajax({
@@ -54,7 +55,7 @@
             });
 
             $('.examBtn').click(function() {
-                setActive('e', $(this));
+                setActive($(this));
                 let matiereID = $(this).attr('id').replace('e_matiere_', '');
                 let title = 'Examens';
                 $.ajax({
@@ -191,7 +192,7 @@
                 return questionsCourantesHTML;
             }
 
-            function setActive(type, element) {
+            function setActive(element) {
                 $('section').removeClass('active');
                 $(element).parent().parent().parent().parent().addClass('active');
             }
@@ -242,7 +243,7 @@
                     success: function(response) {
                         if (response.status == 200) {
                             $('#envoyer').html('ENVOYER');
-                            $(this).trigger("reset");
+                            $('#proposition').val(null);
                             $('#proposition_modal').modal('hide');
                             afficherToast(response.message, 'success', 4000);
                         }
