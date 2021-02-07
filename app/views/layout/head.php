@@ -10,7 +10,7 @@ foreach ($data as $key => $value) ${$key} = $value;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ? $title . ' | ' . SITENAME : SITENAME ?></title>
     <link rel="stylesheet" href="<?= URLROOT . '/assets/bootstrap/css/bootstrap.min.css' ?>">
-    <link rel="stylesheet" href="<?= URLROOT . '/assets/font-awesome/css/font-awesome.min.css' ?>">
-    <link rel="stylesheet" href="<?= URLROOT . '/assets/sweetalert/css/sweetalert2.min.css' ?>">
+    <link rel="stylesheet" href="<?= URLROOT . '/assets/font-awesome/css/font-awesome.min.css' ?>" defer>
+    <link rel="stylesheet" href="<?= URLROOT . '/assets/sweetalert/css/sweetalert2.min.css' ?>" defer>
     <link rel="stylesheet" href="<?= URLROOT . '/assets/custom/css/app.css' ?>">
 </head>

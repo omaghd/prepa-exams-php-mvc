@@ -17,9 +17,9 @@
     </footer>
 
     <script src="<?= URLROOT . '/assets/jquery/js/jquery.min.js' ?>"></script>
-    <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
-    <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>"></script>
-    <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>"></script>
+    <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>" defer></script>
+    <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>" defer></script>
+    <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>" defer></script>
     <script>
         $(function() {
             $('.controleBtn').click(function() {
