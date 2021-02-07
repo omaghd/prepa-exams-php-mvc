@@ -5,7 +5,7 @@
     <footer class="pb-3">
         <div class="text-muted text-center">
             <div>
-                <a class="github-button" href="https://github.com/omaghd/prepa-exams-php" data-size="large" data-icon="octicon-star" aria-label="Star omaghd/prepa-exams-php on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/omaghd/prepa-exams-php-mvc" data-size="large" data-icon="octicon-star" aria-label="Star omaghd/prepa-exams-php on GitHub">Star</a>
             </div>
             <div>
                 Copyright &copy; <?= date('Y') == 2021 ? date('Y') : '2021 - ' . date('Y') ?>
