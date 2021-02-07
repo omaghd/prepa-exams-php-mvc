@@ -8,10 +8,10 @@
                 Copyright &copy; <?= date('Y') == 2021 ? date('Y') : '2021 - ' . date('Y') ?>
             </div>
             <div>
-                Made with ♥ By Omar EL ATMANI &mdash; <a href="https://omaghd.com">OmaghD.com</a>
+                Made with ♥ By Omar EL ATMANI &mdash; <a class="text-dark text-decoration-none" href="https://omaghd.com">OmaghD.com</a>
             </div>
             <div>
-                <a href="<?= URLROOT . '/disclaimer' ?>">Disclaimer</a>
+                <a href="<?= URLROOT . '/disclaimer' ?>">Disclaimer</a> — <a href="<?= URLROOT . '/collaborators' ?>">Collaborators</a>
             </div>
         </div>
     </footer>
