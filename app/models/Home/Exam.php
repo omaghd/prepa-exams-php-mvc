@@ -95,4 +95,37 @@ class Exam extends Database
 
         return $this->resultSet();
     }
+
+    public function afficherReponse($questionID)
+    {
+        $this->query('  SELECT
+                            r.*
+                        FROM
+                            t8v_questions q,
+                            t8v_reponses r
+                        WHERE
+                            q.id = r.id_question
+                        AND
+                        	q.id = :id');
+
+        $this->bind(':id', $questionID);
+
+        return $this->single();
+    }
+
+    public function ajouterProposition($nom, $proposition, $questionID)
+    {
+        $this->query('  INSERT INTO t8v_propositions
+                            (`nom`, `proposition`, `ip`, `user_agent`, `id_question`)
+                        VALUES 
+                            (:nom, :proposition, :ip, :user_agent, :id_question)');
+
+        $this->bind(':nom', $nom);
+        $this->bind(':proposition', $proposition);
+        $this->bind(':ip', $_SERVER['SERVER_ADDR']);
+        $this->bind(':user_agent', $_SERVER['HTTP_USER_AGENT']);
+        $this->bind(':id_question', $questionID);
+
+        return $this->execute();
+    }
 }

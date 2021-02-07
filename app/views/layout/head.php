@@ -11,5 +11,6 @@ foreach ($data as $key => $value) ${$key} = $value;
     <title><?= $title ? $title . ' | ' . SITENAME : SITENAME ?></title>
     <link rel="stylesheet" href="<?= URLROOT . '/assets/bootstrap/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" href="<?= URLROOT . '/assets/font-awesome/css/font-awesome.min.css' ?>">
+    <link rel="stylesheet" href="<?= URLROOT . '/assets/sweetalert/css/sweetalert2.min.css' ?>">
     <link rel="stylesheet" href="<?= URLROOT . '/assets/custom/css/app.css' ?>">
 </head>

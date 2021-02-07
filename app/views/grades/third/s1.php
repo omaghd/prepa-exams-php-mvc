@@ -2,6 +2,56 @@
     foreach ($data as $key => $value) ${$key} = $value;
     ?>
 
+    <div id="reponse_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="reponse_modal_title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="reponse_modal_title">Réponse</h4>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="reponse"></div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn btn-info btn-sm propositionBtn" type="button"><i class="fas fa-info mr-2"></i>Proposez une autre solution</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="proposition_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="proposition_modal_title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="proposition_modal_title">Proposition</h4>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" method="post" id="proposition_form">
+                    <input type="hidden" id="id_question_p" name="id_question">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="question_p">Question</label>
+                            <input id="question_p" class="form-control" type="text" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Votre nom</label>
+                            <input id="nom" class="form-control" type="text" name="nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="proposition">Proposition</label>
+                            <textarea id="proposition" class="form-control" name="proposition" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button class="btn btn-info" id="envoyer" type="submit">ENVOYER</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="d-flex flex-row align-items-center mt-3">
         <div class="container">
             <div class="d-md-flex" id="lists">

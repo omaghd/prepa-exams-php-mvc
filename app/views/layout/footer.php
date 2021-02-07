@@ -19,6 +19,7 @@
     <script src="<?= URLROOT . '/assets/jquery/js/jquery.min.js' ?>"></script>
     <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
     <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>"></script>
+    <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>"></script>
     <script>
         $(function() {
             $('.controleBtn').click(function() {
@@ -102,7 +103,10 @@
                             let questions = response.questions;
                             let parties = response.parties;
                             let annee = $('.dateBtn.active').attr('href').replace('#', '');
+
                             afficherParties(parties, questions, annee);
+                            afficherReponseModal();
+
                             var url = location.href;
                             location.href = "#liste_courante";
                             history.replaceState(null, null, url);
@@ -158,7 +162,7 @@
                 $.each(questions, function(index, question) {
                     if (question.partie == partie) {
                         questionsCourantesHTML += `
-                        <div class="list-group-item list-group-item-action">
+                        <div class="list-group-item list-group-item-action reponseTrigger" id="question_${question.id}">
                             <li class="ml-3">
                                 ${question.question}
                             </li>`
@@ -177,6 +181,78 @@
             function setActive(type, element) {
                 $('section').removeClass('active');
                 $(element).parent().parent().parent().parent().addClass('active');
+            }
+
+            function afficherReponseModal() {
+                $('.reponseTrigger').click(function(e) {
+                    e.preventDefault();
+                    let questionID = $(this).attr('id').replace('question_', '');
+                    $('#reponse').html('<div class="spinner-grow" role="status"></div>');
+                    $.ajax({
+                        type: "post",
+                        url: "<?= URLROOT . '/exam/reponse' ?>",
+                        data: {
+                            questionID: questionID
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            let reponse = response.reponse;
+                            if (reponse != null) {
+                                $('#reponse').html(response.reponse);
+                            } else
+                                $('#reponse').html('<span class="text-muted">-- Pas de réponse pour le moment --</span>');
+
+                            $('.propositionBtn').attr('id', questionID);
+                        }
+                    });
+                    $('#reponse_modal').modal('show');
+                });
+            }
+
+            $('.propositionBtn').click(function() {
+                let questionID = $(this).attr('id');
+                let questionText = $(`#question_${questionID}`).find('li').text().trim();
+                $('#question_p').val(questionText);
+                $('#id_question_p').val(questionID);
+                $('#reponse_modal').modal('hide');
+                $('#proposition_modal').modal('show');
+            });
+
+            $('#proposition_form').submit(function(e) {
+                e.preventDefault();
+                $('#envoyer').html('<div class="spinner-grow" role="status"></div>');
+                $.ajax({
+                    type: "post",
+                    url: "<?= URLROOT . '/exam/proposition' ?>",
+                    data: $(this).serialize(),
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.status == 200) {
+                            $('#envoyer').html('ENVOYER');
+                            $(this).trigger("reset");
+                            $('#proposition_modal').modal('hide');
+                            afficherToast(response.message, 'success');
+                        }
+                    }
+                });
+            });
+
+            function afficherToast(message, icon) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+                Toast.fire({
+                    icon: icon,
+                    title: message
+                });
             }
         });
     </script>
