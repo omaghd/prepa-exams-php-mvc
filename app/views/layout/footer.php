@@ -22,6 +22,15 @@
     <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>" defer></script>
     <script>
         $(function() {
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-QG4VCTT8HB');
+
             $('.controleBtn').click(function() {
                 setActive('c', $(this));
                 let matiereID = $(this).attr('id').replace('c_matiere_', '');
@@ -231,18 +240,18 @@
                             $('#envoyer').html('ENVOYER');
                             $(this).trigger("reset");
                             $('#proposition_modal').modal('hide');
-                            afficherToast(response.message, 'success');
+                            afficherToast(response.message, 'success', 4000);
                         }
                     }
                 });
             });
 
-            function afficherToast(message, icon) {
+            function afficherToast(message, icon, duration) {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
                     showConfirmButton: false,
-                    timer: 3000,
+                    timer: duration,
                     timerProgressBar: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -254,6 +263,32 @@
                     title: message
                 });
             }
+
+            <?php
+            if (strpos($_SERVER['REQUEST_URI'], 'feedback')) :
+            ?>
+
+                $('#feedback_form').submit(function(e) {
+                    e.preventDefault();
+                    $('#send').html('<div class="spinner-grow" role="status"></div>');
+                    $.ajax({
+                        type: "post",
+                        url: "<?= URLROOT . '/feedback/send' ?>",
+                        data: $(this).serialize(),
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.status == 200) {
+                                $('#send').html('SEND');
+                                $('#feedback_form').trigger('reset');
+                                afficherToast(response.message, 'success', 6000);
+                            }
+                        }
+                    });
+                });
+            <?php
+            endif;
+            ?>
+
         });
     </script>
     </body>

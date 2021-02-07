@@ -52,8 +52,8 @@
         </div>
     </div>
 
-    <div class="d-flex flex-row align-items-center mt-3">
-        <div class="container">
+    <div class="d-flex flex-row align-items-center mt-3 mb-5">
+        <div class="container page-wrap">
             <div class="d-md-flex" id="lists">
                 <div class="list-group col-sm-12 col-md-5 col-lg-4 ml-2 ml-md-0">
                     <h3>Matières</h3>
