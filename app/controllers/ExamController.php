@@ -4,7 +4,7 @@ class ExamController extends Controller
 {
     public function __construct()
     {
-        $this->examModel = $this->model('Home/exam');
+        $this->examModel = $this->model('Home/Exam');
     }
 
     public function index($param = NULL)

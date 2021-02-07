@@ -4,7 +4,7 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->homeModel = $this->model('Home/home');
+        $this->homeModel = $this->model('Home/Home');
     }
 
     public function include($title)
