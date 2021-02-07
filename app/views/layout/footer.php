@@ -5,6 +5,9 @@
     <footer class="pb-3">
         <div class="text-muted text-center">
             <div>
+                <a class="github-button" href="https://github.com/omaghd/prepa-exams-php" data-size="large" data-icon="octicon-star" aria-label="Star omaghd/prepa-exams-php on GitHub">Star</a>
+            </div>
+            <div>
                 Copyright &copy; <?= date('Y') == 2021 ? date('Y') : '2021 - ' . date('Y') ?>
             </div>
             <div>
@@ -20,6 +23,7 @@
     <script src="<?= URLROOT . '/assets/bootstrap/js/bootstrap.bundle.min.js' ?>" defer></script>
     <script src="<?= URLROOT . '/assets/font-awesome/js/font-awesome.min.js' ?>" defer></script>
     <script src="<?= URLROOT . '/assets/sweetalert/js/sweetalert2.all.min.js' ?>" defer></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
         $(function() {
             window.dataLayer = window.dataLayer || [];
